@@ -15,11 +15,16 @@ class Overlord:
         self.keys = Item("keys", 0, 0.0, 0.0)
 
     def begin(self):
-        p = Process(target=self.increment_score)
+        """Start game loop"""
+        p = Process(target=self.start_increment_score_loop, args=[self.weapons])
         p.start()
 
-    def increment_score(self):
+    def start_increment_score_loop(self, target: Item):
+        """
+        An asynchronous while loop that increases count of target item based on its gain_rate and gain_amount
+        properties
+        """
         while True:
-            self.weapons.increment()
-            print(self.weapons)
-            time.sleep(self.weapons.gain_rate)
+            target.increment()
+            print(target)
+            time.sleep(target.gain_rate)
