@@ -21,5 +21,5 @@ class Overlord:
     def increment_score(self):
         while True:
             self.weapons.increment()
-            print(f"Weapons: {self.weapons.amount}")
+            print(self.weapons)
             time.sleep(self.weapons.gain_rate)

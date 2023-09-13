@@ -11,3 +11,6 @@ class Item:
 
     def increment(self):
         self.amount += self.gain_amount
+
+    def __repr__(self) -> str:
+        return f"{int(self.amount)}x {self.name}"
