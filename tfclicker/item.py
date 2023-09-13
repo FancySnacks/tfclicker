@@ -16,6 +16,7 @@ class Item:
 
     def increment(self):
         self.amount += self.gain_amount
+        print(self)
 
     def __repr__(self) -> str:
         return f"{int(self.amount)}x {self.name}"
@@ -38,7 +39,7 @@ class ItemMaster:
         self.keys = keys
 
         p = Process(target=self.start_increment_score_loop, args=[self.weapons])
-        p.start()
+        #p.start()
 
     def start_increment_score_loop(self, target: Item):
         """
@@ -47,5 +48,7 @@ class ItemMaster:
         """
         while True:
             target.increment()
-            print(target)
             time.sleep(target.gain_rate)
+
+    def drop_weapon(self):
+        self.weapons.increment()

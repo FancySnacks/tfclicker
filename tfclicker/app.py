@@ -11,3 +11,6 @@ class Overlord:
     def begin(self):
         """Start game loop"""
         pass
+
+    def mouse_click(self):
+        self.ItemMaster.drop_weapon()
