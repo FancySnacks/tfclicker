@@ -1,6 +1,6 @@
 """Manager class that puts it all together"""
 
-from item import ItemMaster, weapons
+from item import ItemMaster
 
 
 class Overlord:
